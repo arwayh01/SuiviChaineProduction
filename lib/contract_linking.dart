@@ -10,9 +10,9 @@ import 'package:web_socket_channel/io.dart';
 import 'package:flutter/material.dart';
 
 class ContractLinking extends ChangeNotifier {
-  final String _rpcUrl = "http://10.0.0.1:7545";
-  final String _wsUrl = "ws://10.0.0.1:7545/";
-  final String _privateKey ="52e4c5d8f07c21d880b072f70234e7eb9bc273d645bbf41a53e58524e325004d";
+  final String _rpcUrl = "http://127.0.0.1:7545";
+  final String _wsUrl = "ws://127.0.0.1:7545/";
+  final String _privateKey ="0f7cd36fc1376103e46310518632faa5cd265b7a6854905856183d422e91623a";
   late Web3Client _client;
   late bool isLoading = true;
   late String _abiCode;
@@ -53,9 +53,7 @@ class ContractLinking extends ChangeNotifier {
         EthereumAddress.fromHex(jsonAbi["networks"]["5777"]["address"]);
   }
 
-  Future<void> getCredentials() async {
-    _credentials = await _client.credentialsFromPrivateKey(_privateKey);
-  }
+  Future<void> getCredentials() async => _credentials = await _client.credentialsFromPrivateKey(_privateKey);
 
   Future<void> getDeployedContract() async {
 
@@ -90,6 +88,5 @@ class ContractLinking extends ChangeNotifier {
             contract: _contract, function: _setName, parameters: [nameToSet]));
     getName();
   }
-
 
 }

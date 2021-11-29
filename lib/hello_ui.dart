@@ -1,8 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show AppBar, BuildContext, Center, CircularProgressIndicator, Colors, Column, Container, EdgeInsets, ElevatedButton, FontWeight, Form, Icon, Icons, InputDecoration, Key, MainAxisAlignment, OutlineInputBorder, Padding, Row, Scaffold, SingleChildScrollView, StatelessWidget, Text, TextEditingController, TextFormField, TextStyle, Widget;
 import 'package:hello_world/contract_linking.dart';
 import 'package:provider/provider.dart';
 
+
 class HelloUI extends StatelessWidget {
+  const HelloUI({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
 
@@ -13,14 +16,14 @@ class HelloUI extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hello World !"),
+        title: const Text("Hello World !"),
         centerTitle: true,
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Center(
           child: contractLink.isLoading
-              ? CircularProgressIndicator()
+              ? const CircularProgressIndicator()
               : SingleChildScrollView(
             child: Form(
               child: Column(
@@ -28,14 +31,14 @@ class HelloUI extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "Hello ",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 52),
                       ),
                       Text(
                         contractLink.deployedName,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 52,
                             color: Colors.tealAccent),
@@ -43,10 +46,10 @@ class HelloUI extends StatelessWidget {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: 29),
+                    padding: const EdgeInsets.only(top: 29),
                     child: TextFormField(
                       controller: yourNameController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: "Your Name",
                           hintText: "What is your name ?",
@@ -54,9 +57,9 @@ class HelloUI extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: 30),
+                    padding: const EdgeInsets.only(top: 30),
                     child: ElevatedButton(
-                      child: Text(
+                      child: const Text(
                         'Set Name',
                         style: TextStyle(fontSize: 30),
                       ),
